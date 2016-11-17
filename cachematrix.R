@@ -3,10 +3,10 @@
 
 ## The function makeCacheMatrix takes a square matrix as input 'x' 
 ## and returns a list containing the following functions:
-##   1. SetMat    Sets the matrix
-##   2. GetMat    Gets the matrix
-##   3. SetInv    Sets the inverse of the matrix
-##   4. GetInv    Gets the inverse of the matrix
+##   1. SetMat    Set the matrix
+##   2. GetMat    Get the matrix
+##   3. SetInv    Set the inverse of the matrix
+##   4. GetInv    Get the inverse of the matrix
 ## The list is used as input to the function cacheSolve()
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -44,3 +44,37 @@ cacheSolve <- function(y, ...) {
   y$SetInv(cacheInp)
   return(cacheInp)
 }
+
+
+
+## Test solution
+
+## Compare solve time whether the inverse matrix is in the cache or not 
+# test = function(z){
+#  input = makeCacheMatrix(z)
+  
+#  print("First iteration:", quote = FALSE)
+#  start = Sys.time()
+#  cacheSolve(input)
+#  duration = Sys.time() - start
+#  print(duration)
+  
+#  print("Second iteration:", quote = FALSE)
+#  start = Sys.time()
+#  cacheSolve(input)
+#  duration = Sys.time() - start
+#  print(duration)
+# }
+
+## create a large square matrix of random normal distributed numbers
+# set.seed(10225)
+# dat = rnorm(4000000)
+# mat = matrix(dat, nrow=2000, ncol=2000)
+# test(mat)
+
+## Output:
+# [1] First iteration:
+#  Time difference of 8.241944 secs
+# [1] Second iteration:
+#  getting cached data
+# Time difference of 0 secs
